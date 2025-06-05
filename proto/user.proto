@@ -1,0 +1,51 @@
+syntax = "proto3";
+package user;
+option go_package = "github.com/98y7tbnb97t/GoMicro/proto/user";
+
+message User {
+  uint32 id      = 1;
+  string email   = 2;
+}
+
+message UserRequest {
+  uint32 id      = 1;
+}
+message UserResponse {
+  uint32 id      = 1;
+  string email   = 2;
+}
+
+message CreateUserRequest {
+  string email = 1;
+}
+message CreateUserResponse {
+  User user = 1;
+}
+message ListUsersRequest {}
+message ListUsersResponse {
+  repeated User users = 1;
+}
+
+message UpdateUserRequest {
+  uint32 id      = 1;
+  string email   = 2;
+}
+message UpdateUserResponse {
+  User user = 1;
+}
+message DeleteUserRequest {
+  uint32 id = 1;
+}
+message DeleteUserResponse {}
+
+
+
+service UserService {
+  rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
+  rpc GetUser    (UserRequest)             returns (UserResponse);
+
+
+  rpc ListUsers    (ListUsersRequest)             returns (ListUsersResponse);
+  rpc UpdateUser    (UpdateUserRequest)             returns (UpdateUserResponse);
+  rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
+}
