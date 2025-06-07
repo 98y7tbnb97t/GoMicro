@@ -4,7 +4,7 @@
 // 	protoc        v6.31.1
 // source: proto/task.proto
 
-package task
+package taskpd
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -21,7 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// Сущность задача
 type Task struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
@@ -518,7 +517,7 @@ var File_proto_task_proto protoreflect.FileDescriptor
 
 const file_proto_task_proto_rawDesc = "" +
 	"\n" +
-	"\x10proto/task.proto\x12\x04task\",\n" +
+	"\x10proto/task.proto\x12\x06taskpd\",\n" +
 	"\x04Task\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\"\x1d\n" +
@@ -528,32 +527,29 @@ const file_proto_task_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\")\n" +
 	"\x11CreateTaskRequest\x12\x14\n" +
-	"\x05title\x18\x01 \x01(\tR\x05title\"4\n" +
-	"\x12CreateTaskResponse\x12\x1e\n" +
-	"\x04task\x18\x01 \x01(\v2\n" +
-	".task.TaskR\x04task\"\x12\n" +
-	"\x10ListTasksRequest\"5\n" +
-	"\x11ListTasksResponse\x12 \n" +
-	"\x05tasks\x18\x01 \x03(\v2\n" +
-	".task.TaskR\x05tasks\"9\n" +
+	"\x05title\x18\x01 \x01(\tR\x05title\"6\n" +
+	"\x12CreateTaskResponse\x12 \n" +
+	"\x04task\x18\x01 \x01(\v2\f.taskpd.TaskR\x04task\"\x12\n" +
+	"\x10ListTasksRequest\"7\n" +
+	"\x11ListTasksResponse\x12\"\n" +
+	"\x05tasks\x18\x01 \x03(\v2\f.taskpd.TaskR\x05tasks\"9\n" +
 	"\x11UpdateTaskRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
-	"\x05title\x18\x02 \x01(\tR\x05title\"4\n" +
-	"\x12UpdateTaskResponse\x12\x1e\n" +
-	"\x04task\x18\x01 \x01(\v2\n" +
-	".task.TaskR\x04task\"#\n" +
+	"\x05title\x18\x02 \x01(\tR\x05title\"6\n" +
+	"\x12UpdateTaskResponse\x12 \n" +
+	"\x04task\x18\x01 \x01(\v2\f.taskpd.TaskR\x04task\"#\n" +
 	"\x11DeleteTaskRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"\x14\n" +
-	"\x12DeleteTaskResponse2\xc0\x02\n" +
-	"\vTaskService\x12?\n" +
+	"\x12DeleteTaskResponse2\xd4\x02\n" +
+	"\vTaskService\x12C\n" +
 	"\n" +
-	"CreateTask\x12\x17.task.CreateTaskRequest\x1a\x18.task.CreateTaskResponse\x120\n" +
-	"\aGetTask\x12\x11.task.TaskRequest\x1a\x12.task.TaskResponse\x12<\n" +
-	"\tListTasks\x12\x16.task.ListTasksRequest\x1a\x17.task.ListTasksResponse\x12?\n" +
+	"CreateTask\x12\x19.taskpd.CreateTaskRequest\x1a\x1a.taskpd.CreateTaskResponse\x124\n" +
+	"\aGetTask\x12\x13.taskpd.TaskRequest\x1a\x14.taskpd.TaskResponse\x12@\n" +
+	"\tListTasks\x12\x18.taskpd.ListTasksRequest\x1a\x19.taskpd.ListTasksResponse\x12C\n" +
 	"\n" +
-	"UpdateTask\x12\x17.task.UpdateTaskRequest\x1a\x18.task.UpdateTaskResponse\x12?\n" +
+	"UpdateTask\x12\x19.taskpd.UpdateTaskRequest\x1a\x1a.taskpd.UpdateTaskResponse\x12C\n" +
 	"\n" +
-	"DeleteTask\x12\x17.task.DeleteTaskRequest\x1a\x18.task.DeleteTaskResponseB+Z)github.com/98y7tbnb97t/GoMicro/proto/taskb\x06proto3"
+	"DeleteTask\x12\x19.taskpd.DeleteTaskRequest\x1a\x1a.taskpd.DeleteTaskResponseB-Z+github.com/98y7tbnb97t/GoMicro/proto/taskpdb\x06proto3"
 
 var (
 	file_proto_task_proto_rawDescOnce sync.Once
@@ -569,32 +565,32 @@ func file_proto_task_proto_rawDescGZIP() []byte {
 
 var file_proto_task_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_proto_task_proto_goTypes = []any{
-	(*Task)(nil),               // 0: task.Task
-	(*TaskRequest)(nil),        // 1: task.TaskRequest
-	(*TaskResponse)(nil),       // 2: task.TaskResponse
-	(*CreateTaskRequest)(nil),  // 3: task.CreateTaskRequest
-	(*CreateTaskResponse)(nil), // 4: task.CreateTaskResponse
-	(*ListTasksRequest)(nil),   // 5: task.ListTasksRequest
-	(*ListTasksResponse)(nil),  // 6: task.ListTasksResponse
-	(*UpdateTaskRequest)(nil),  // 7: task.UpdateTaskRequest
-	(*UpdateTaskResponse)(nil), // 8: task.UpdateTaskResponse
-	(*DeleteTaskRequest)(nil),  // 9: task.DeleteTaskRequest
-	(*DeleteTaskResponse)(nil), // 10: task.DeleteTaskResponse
+	(*Task)(nil),               // 0: taskpd.Task
+	(*TaskRequest)(nil),        // 1: taskpd.TaskRequest
+	(*TaskResponse)(nil),       // 2: taskpd.TaskResponse
+	(*CreateTaskRequest)(nil),  // 3: taskpd.CreateTaskRequest
+	(*CreateTaskResponse)(nil), // 4: taskpd.CreateTaskResponse
+	(*ListTasksRequest)(nil),   // 5: taskpd.ListTasksRequest
+	(*ListTasksResponse)(nil),  // 6: taskpd.ListTasksResponse
+	(*UpdateTaskRequest)(nil),  // 7: taskpd.UpdateTaskRequest
+	(*UpdateTaskResponse)(nil), // 8: taskpd.UpdateTaskResponse
+	(*DeleteTaskRequest)(nil),  // 9: taskpd.DeleteTaskRequest
+	(*DeleteTaskResponse)(nil), // 10: taskpd.DeleteTaskResponse
 }
 var file_proto_task_proto_depIdxs = []int32{
-	0,  // 0: task.CreateTaskResponse.task:type_name -> task.Task
-	0,  // 1: task.ListTasksResponse.tasks:type_name -> task.Task
-	0,  // 2: task.UpdateTaskResponse.task:type_name -> task.Task
-	3,  // 3: task.TaskService.CreateTask:input_type -> task.CreateTaskRequest
-	1,  // 4: task.TaskService.GetTask:input_type -> task.TaskRequest
-	5,  // 5: task.TaskService.ListTasks:input_type -> task.ListTasksRequest
-	7,  // 6: task.TaskService.UpdateTask:input_type -> task.UpdateTaskRequest
-	9,  // 7: task.TaskService.DeleteTask:input_type -> task.DeleteTaskRequest
-	4,  // 8: task.TaskService.CreateTask:output_type -> task.CreateTaskResponse
-	2,  // 9: task.TaskService.GetTask:output_type -> task.TaskResponse
-	6,  // 10: task.TaskService.ListTasks:output_type -> task.ListTasksResponse
-	8,  // 11: task.TaskService.UpdateTask:output_type -> task.UpdateTaskResponse
-	10, // 12: task.TaskService.DeleteTask:output_type -> task.DeleteTaskResponse
+	0,  // 0: taskpd.CreateTaskResponse.task:type_name -> taskpd.Task
+	0,  // 1: taskpd.ListTasksResponse.tasks:type_name -> taskpd.Task
+	0,  // 2: taskpd.UpdateTaskResponse.task:type_name -> taskpd.Task
+	3,  // 3: taskpd.TaskService.CreateTask:input_type -> taskpd.CreateTaskRequest
+	1,  // 4: taskpd.TaskService.GetTask:input_type -> taskpd.TaskRequest
+	5,  // 5: taskpd.TaskService.ListTasks:input_type -> taskpd.ListTasksRequest
+	7,  // 6: taskpd.TaskService.UpdateTask:input_type -> taskpd.UpdateTaskRequest
+	9,  // 7: taskpd.TaskService.DeleteTask:input_type -> taskpd.DeleteTaskRequest
+	4,  // 8: taskpd.TaskService.CreateTask:output_type -> taskpd.CreateTaskResponse
+	2,  // 9: taskpd.TaskService.GetTask:output_type -> taskpd.TaskResponse
+	6,  // 10: taskpd.TaskService.ListTasks:output_type -> taskpd.ListTasksResponse
+	8,  // 11: taskpd.TaskService.UpdateTask:output_type -> taskpd.UpdateTaskResponse
+	10, // 12: taskpd.TaskService.DeleteTask:output_type -> taskpd.DeleteTaskResponse
 	8,  // [8:13] is the sub-list for method output_type
 	3,  // [3:8] is the sub-list for method input_type
 	3,  // [3:3] is the sub-list for extension type_name

@@ -1,8 +1,7 @@
 syntax = "proto3";
-package task;
-option go_package = "github.com/98y7tbnb97t/GoMicro/proto/task";
+package taskpd;
+option go_package = "github.com/98y7tbnb97t/GoMicro/proto/taskpd";
 
-// Сущность задача
 message Task {
   uint32 id      = 1;
   string title   = 2;
@@ -39,13 +38,9 @@ message DeleteTaskRequest {
 }
 message DeleteTaskResponse {}
 
-
-
 service TaskService {
   rpc CreateTask (CreateTaskRequest) returns (CreateTaskResponse);
   rpc GetTask    (TaskRequest)             returns (TaskResponse);
-
-
   rpc ListTasks    (ListTasksRequest)             returns (ListTasksResponse);
   rpc UpdateTask    (UpdateTaskRequest)             returns (UpdateTaskResponse);
   rpc DeleteTask (DeleteTaskRequest) returns (DeleteTaskResponse);

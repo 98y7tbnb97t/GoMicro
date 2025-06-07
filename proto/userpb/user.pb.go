@@ -4,7 +4,7 @@
 // 	protoc        v6.31.1
 // source: proto/user.proto
 
-package user
+package userpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -517,7 +517,7 @@ var File_proto_user_proto protoreflect.FileDescriptor
 
 const file_proto_user_proto_rawDesc = "" +
 	"\n" +
-	"\x10proto/user.proto\x12\x04user\",\n" +
+	"\x10proto/user.proto\x12\x06userpb\",\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\"\x1d\n" +
@@ -527,32 +527,29 @@ const file_proto_user_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05email\x18\x02 \x01(\tR\x05email\")\n" +
 	"\x11CreateUserRequest\x12\x14\n" +
-	"\x05email\x18\x01 \x01(\tR\x05email\"4\n" +
-	"\x12CreateUserResponse\x12\x1e\n" +
-	"\x04user\x18\x01 \x01(\v2\n" +
-	".user.UserR\x04user\"\x12\n" +
-	"\x10ListUsersRequest\"5\n" +
-	"\x11ListUsersResponse\x12 \n" +
-	"\x05users\x18\x01 \x03(\v2\n" +
-	".user.UserR\x05users\"9\n" +
+	"\x05email\x18\x01 \x01(\tR\x05email\"6\n" +
+	"\x12CreateUserResponse\x12 \n" +
+	"\x04user\x18\x01 \x01(\v2\f.userpb.UserR\x04user\"\x12\n" +
+	"\x10ListUsersRequest\"7\n" +
+	"\x11ListUsersResponse\x12\"\n" +
+	"\x05users\x18\x01 \x03(\v2\f.userpb.UserR\x05users\"9\n" +
 	"\x11UpdateUserRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
-	"\x05email\x18\x02 \x01(\tR\x05email\"4\n" +
-	"\x12UpdateUserResponse\x12\x1e\n" +
-	"\x04user\x18\x01 \x01(\v2\n" +
-	".user.UserR\x04user\"#\n" +
+	"\x05email\x18\x02 \x01(\tR\x05email\"6\n" +
+	"\x12UpdateUserResponse\x12 \n" +
+	"\x04user\x18\x01 \x01(\v2\f.userpb.UserR\x04user\"#\n" +
 	"\x11DeleteUserRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"\x14\n" +
-	"\x12DeleteUserResponse2\xc0\x02\n" +
-	"\vUserService\x12?\n" +
+	"\x12DeleteUserResponse2\xd4\x02\n" +
+	"\vUserService\x12C\n" +
 	"\n" +
-	"CreateUser\x12\x17.user.CreateUserRequest\x1a\x18.user.CreateUserResponse\x120\n" +
-	"\aGetUser\x12\x11.user.UserRequest\x1a\x12.user.UserResponse\x12<\n" +
-	"\tListUsers\x12\x16.user.ListUsersRequest\x1a\x17.user.ListUsersResponse\x12?\n" +
+	"CreateUser\x12\x19.userpb.CreateUserRequest\x1a\x1a.userpb.CreateUserResponse\x124\n" +
+	"\aGetUser\x12\x13.userpb.UserRequest\x1a\x14.userpb.UserResponse\x12@\n" +
+	"\tListUsers\x12\x18.userpb.ListUsersRequest\x1a\x19.userpb.ListUsersResponse\x12C\n" +
 	"\n" +
-	"UpdateUser\x12\x17.user.UpdateUserRequest\x1a\x18.user.UpdateUserResponse\x12?\n" +
+	"UpdateUser\x12\x19.userpb.UpdateUserRequest\x1a\x1a.userpb.UpdateUserResponse\x12C\n" +
 	"\n" +
-	"DeleteUser\x12\x17.user.DeleteUserRequest\x1a\x18.user.DeleteUserResponseB+Z)github.com/98y7tbnb97t/GoMicro/proto/userb\x06proto3"
+	"DeleteUser\x12\x19.userpb.DeleteUserRequest\x1a\x1a.userpb.DeleteUserResponseB-Z+github.com/98y7tbnb97t/GoMicro/proto/userpbb\x06proto3"
 
 var (
 	file_proto_user_proto_rawDescOnce sync.Once
@@ -568,32 +565,32 @@ func file_proto_user_proto_rawDescGZIP() []byte {
 
 var file_proto_user_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_proto_user_proto_goTypes = []any{
-	(*User)(nil),               // 0: user.User
-	(*UserRequest)(nil),        // 1: user.UserRequest
-	(*UserResponse)(nil),       // 2: user.UserResponse
-	(*CreateUserRequest)(nil),  // 3: user.CreateUserRequest
-	(*CreateUserResponse)(nil), // 4: user.CreateUserResponse
-	(*ListUsersRequest)(nil),   // 5: user.ListUsersRequest
-	(*ListUsersResponse)(nil),  // 6: user.ListUsersResponse
-	(*UpdateUserRequest)(nil),  // 7: user.UpdateUserRequest
-	(*UpdateUserResponse)(nil), // 8: user.UpdateUserResponse
-	(*DeleteUserRequest)(nil),  // 9: user.DeleteUserRequest
-	(*DeleteUserResponse)(nil), // 10: user.DeleteUserResponse
+	(*User)(nil),               // 0: userpb.User
+	(*UserRequest)(nil),        // 1: userpb.UserRequest
+	(*UserResponse)(nil),       // 2: userpb.UserResponse
+	(*CreateUserRequest)(nil),  // 3: userpb.CreateUserRequest
+	(*CreateUserResponse)(nil), // 4: userpb.CreateUserResponse
+	(*ListUsersRequest)(nil),   // 5: userpb.ListUsersRequest
+	(*ListUsersResponse)(nil),  // 6: userpb.ListUsersResponse
+	(*UpdateUserRequest)(nil),  // 7: userpb.UpdateUserRequest
+	(*UpdateUserResponse)(nil), // 8: userpb.UpdateUserResponse
+	(*DeleteUserRequest)(nil),  // 9: userpb.DeleteUserRequest
+	(*DeleteUserResponse)(nil), // 10: userpb.DeleteUserResponse
 }
 var file_proto_user_proto_depIdxs = []int32{
-	0,  // 0: user.CreateUserResponse.user:type_name -> user.User
-	0,  // 1: user.ListUsersResponse.users:type_name -> user.User
-	0,  // 2: user.UpdateUserResponse.user:type_name -> user.User
-	3,  // 3: user.UserService.CreateUser:input_type -> user.CreateUserRequest
-	1,  // 4: user.UserService.GetUser:input_type -> user.UserRequest
-	5,  // 5: user.UserService.ListUsers:input_type -> user.ListUsersRequest
-	7,  // 6: user.UserService.UpdateUser:input_type -> user.UpdateUserRequest
-	9,  // 7: user.UserService.DeleteUser:input_type -> user.DeleteUserRequest
-	4,  // 8: user.UserService.CreateUser:output_type -> user.CreateUserResponse
-	2,  // 9: user.UserService.GetUser:output_type -> user.UserResponse
-	6,  // 10: user.UserService.ListUsers:output_type -> user.ListUsersResponse
-	8,  // 11: user.UserService.UpdateUser:output_type -> user.UpdateUserResponse
-	10, // 12: user.UserService.DeleteUser:output_type -> user.DeleteUserResponse
+	0,  // 0: userpb.CreateUserResponse.user:type_name -> userpb.User
+	0,  // 1: userpb.ListUsersResponse.users:type_name -> userpb.User
+	0,  // 2: userpb.UpdateUserResponse.user:type_name -> userpb.User
+	3,  // 3: userpb.UserService.CreateUser:input_type -> userpb.CreateUserRequest
+	1,  // 4: userpb.UserService.GetUser:input_type -> userpb.UserRequest
+	5,  // 5: userpb.UserService.ListUsers:input_type -> userpb.ListUsersRequest
+	7,  // 6: userpb.UserService.UpdateUser:input_type -> userpb.UpdateUserRequest
+	9,  // 7: userpb.UserService.DeleteUser:input_type -> userpb.DeleteUserRequest
+	4,  // 8: userpb.UserService.CreateUser:output_type -> userpb.CreateUserResponse
+	2,  // 9: userpb.UserService.GetUser:output_type -> userpb.UserResponse
+	6,  // 10: userpb.UserService.ListUsers:output_type -> userpb.ListUsersResponse
+	8,  // 11: userpb.UserService.UpdateUser:output_type -> userpb.UpdateUserResponse
+	10, // 12: userpb.UserService.DeleteUser:output_type -> userpb.DeleteUserResponse
 	8,  // [8:13] is the sub-list for method output_type
 	3,  // [3:8] is the sub-list for method input_type
 	3,  // [3:3] is the sub-list for extension type_name
