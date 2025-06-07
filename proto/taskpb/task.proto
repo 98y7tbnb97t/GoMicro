@@ -1,6 +1,6 @@
 syntax = "proto3";
-package taskpd;
-option go_package = "github.com/98y7tbnb97t/GoMicro/proto/taskpd";
+package taskpb;
+option go_package = "github.com/98y7tbnb97t/GoMicro/proto/taskpb";
 
 message Task {
   uint32 id      = 1;
