@@ -4,7 +4,7 @@
 // - protoc             v6.31.1
 // source: proto/task.proto
 
-package taskpd
+package taskpb
 
 import (
 	context "context"
@@ -19,11 +19,11 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	TaskService_CreateTask_FullMethodName = "/taskpd.TaskService/CreateTask"
-	TaskService_GetTask_FullMethodName    = "/taskpd.TaskService/GetTask"
-	TaskService_ListTasks_FullMethodName  = "/taskpd.TaskService/ListTasks"
-	TaskService_UpdateTask_FullMethodName = "/taskpd.TaskService/UpdateTask"
-	TaskService_DeleteTask_FullMethodName = "/taskpd.TaskService/DeleteTask"
+	TaskService_CreateTask_FullMethodName = "/taskpb.TaskService/CreateTask"
+	TaskService_GetTask_FullMethodName    = "/taskpb.TaskService/GetTask"
+	TaskService_ListTasks_FullMethodName  = "/taskpb.TaskService/ListTasks"
+	TaskService_UpdateTask_FullMethodName = "/taskpb.TaskService/UpdateTask"
+	TaskService_DeleteTask_FullMethodName = "/taskpb.TaskService/DeleteTask"
 )
 
 // TaskServiceClient is the client API for TaskService service.
@@ -244,7 +244,7 @@ func _TaskService_DeleteTask_Handler(srv interface{}, ctx context.Context, dec f
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var TaskService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "taskpd.TaskService",
+	ServiceName: "taskpb.TaskService",
 	HandlerType: (*TaskServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
