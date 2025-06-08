@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.31.1
-// source: taskpb/task.proto
+// source: task.proto
 
 package taskpb
 
@@ -307,5 +307,5 @@ var TaskService_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "taskpb/task.proto",
+	Metadata: "task.proto",
 }
