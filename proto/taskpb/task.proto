@@ -1,17 +1,15 @@
 syntax = "proto3";
 package taskpb;
 option go_package = "github.com/98y7tbnb97t/GoMicro/proto/taskpb";
-message User {
-  uint32 id = 1;
-  string email = 2;
-}
+
+import "userpb/user.proto"; // Добавить импорт userpb
 
 message Task {
   uint32 id = 1;
   string title = 2;
   bool is_done = 3;
   uint32 user_id = 4;
-  User user = 5;
+  userpb.User user = 5; // Использовать userpb.User
 }
 
 message TaskRequest {
