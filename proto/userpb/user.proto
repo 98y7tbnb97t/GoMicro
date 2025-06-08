@@ -3,16 +3,15 @@ package userpb;
 option go_package = "github.com/98y7tbnb97t/GoMicro/proto/userpb";
 
 message User {
-  uint32 id      = 1;
-  string email   = 2;
+  uint32 id = 1;
+  string email = 2;
 }
 
 message UserRequest {
-  uint32 id      = 1;
+  uint32 id = 1;
 }
 message UserResponse {
-  uint32 id      = 1;
-  string email   = 2;
+  User user = 1;
 }
 
 message CreateUserRequest {
@@ -27,8 +26,8 @@ message ListUsersResponse {
 }
 
 message UpdateUserRequest {
-  uint32 id      = 1;
-  string email   = 2;
+  uint32 id = 1;
+  string email = 2;
 }
 message UpdateUserResponse {
   User user = 1;
@@ -40,8 +39,8 @@ message DeleteUserResponse {}
 
 service UserService {
   rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
-  rpc GetUser    (UserRequest)             returns (UserResponse);
-  rpc ListUsers    (ListUsersRequest)             returns (ListUsersResponse);
-  rpc UpdateUser    (UpdateUserRequest)             returns (UpdateUserResponse);
+  rpc GetUser    (UserRequest) returns (UserResponse);
+  rpc ListUsers  (ListUsersRequest) returns (ListUsersResponse);
+  rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse);
   rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
 }
