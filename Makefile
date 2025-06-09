@@ -1,7 +1,7 @@
 PROTOS  := proto/*.proto
 OUT_DIR := .
 
-generate:
+gen:
 	protoc \
 	  -I proto \
 	  --go_out=$(OUT_DIR) --go_opt=paths=source_relative \

@@ -7,7 +7,6 @@
 package taskpb
 
 import (
-	userpb "github.com/98y7tbnb97t/GoMicro/proto/userpb"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -28,7 +27,6 @@ type Task struct {
 	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
 	IsDone        bool                   `protobuf:"varint,3,opt,name=is_done,json=isDone,proto3" json:"is_done,omitempty"`
 	UserId        uint32                 `protobuf:"varint,4,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
-	User          *userpb.User           `protobuf:"bytes,5,opt,name=user,proto3" json:"user,omitempty"` // Используем userpb.User
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -89,13 +87,6 @@ func (x *Task) GetUserId() uint32 {
 		return x.UserId
 	}
 	return 0
-}
-
-func (x *Task) GetUser() *userpb.User {
-	if x != nil {
-		return x.User
-	}
-	return nil
 }
 
 type TaskRequest struct {
@@ -639,14 +630,12 @@ var File_task_proto protoreflect.FileDescriptor
 const file_task_proto_rawDesc = "" +
 	"\n" +
 	"\n" +
-	"task.proto\x12\x06taskpb\x1a\n" +
-	"user.proto\"\x80\x01\n" +
+	"task.proto\x12\x06taskpb\"^\n" +
 	"\x04Task\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12\x17\n" +
 	"\ais_done\x18\x03 \x01(\bR\x06isDone\x12\x17\n" +
-	"\auser_id\x18\x04 \x01(\rR\x06userId\x12 \n" +
-	"\x04user\x18\x05 \x01(\v2\f.userpb.UserR\x04user\"\x1d\n" +
+	"\auser_id\x18\x04 \x01(\rR\x06userId\"\x1d\n" +
 	"\vTaskRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\"0\n" +
 	"\fTaskResponse\x12 \n" +
@@ -710,32 +699,30 @@ var file_task_proto_goTypes = []any{
 	(*UpdateTaskResponse)(nil),      // 10: taskpb.UpdateTaskResponse
 	(*DeleteTaskRequest)(nil),       // 11: taskpb.DeleteTaskRequest
 	(*DeleteTaskResponse)(nil),      // 12: taskpb.DeleteTaskResponse
-	(*userpb.User)(nil),             // 13: userpb.User
 }
 var file_task_proto_depIdxs = []int32{
-	13, // 0: taskpb.Task.user:type_name -> userpb.User
-	0,  // 1: taskpb.TaskResponse.task:type_name -> taskpb.Task
-	0,  // 2: taskpb.CreateTaskResponse.task:type_name -> taskpb.Task
-	0,  // 3: taskpb.ListTasksResponse.tasks:type_name -> taskpb.Task
-	0,  // 4: taskpb.ListTasksByUserResponse.tasks:type_name -> taskpb.Task
-	0,  // 5: taskpb.UpdateTaskResponse.task:type_name -> taskpb.Task
-	3,  // 6: taskpb.TaskService.CreateTask:input_type -> taskpb.CreateTaskRequest
-	1,  // 7: taskpb.TaskService.GetTask:input_type -> taskpb.TaskRequest
-	5,  // 8: taskpb.TaskService.ListTasks:input_type -> taskpb.ListTasksRequest
-	7,  // 9: taskpb.TaskService.ListTasksByUser:input_type -> taskpb.ListTasksByUserRequest
-	9,  // 10: taskpb.TaskService.UpdateTask:input_type -> taskpb.UpdateTaskRequest
-	11, // 11: taskpb.TaskService.DeleteTask:input_type -> taskpb.DeleteTaskRequest
-	4,  // 12: taskpb.TaskService.CreateTask:output_type -> taskpb.CreateTaskResponse
-	2,  // 13: taskpb.TaskService.GetTask:output_type -> taskpb.TaskResponse
-	6,  // 14: taskpb.TaskService.ListTasks:output_type -> taskpb.ListTasksResponse
-	8,  // 15: taskpb.TaskService.ListTasksByUser:output_type -> taskpb.ListTasksByUserResponse
-	10, // 16: taskpb.TaskService.UpdateTask:output_type -> taskpb.UpdateTaskResponse
-	12, // 17: taskpb.TaskService.DeleteTask:output_type -> taskpb.DeleteTaskResponse
-	12, // [12:18] is the sub-list for method output_type
-	6,  // [6:12] is the sub-list for method input_type
-	6,  // [6:6] is the sub-list for extension type_name
-	6,  // [6:6] is the sub-list for extension extendee
-	0,  // [0:6] is the sub-list for field type_name
+	0,  // 0: taskpb.TaskResponse.task:type_name -> taskpb.Task
+	0,  // 1: taskpb.CreateTaskResponse.task:type_name -> taskpb.Task
+	0,  // 2: taskpb.ListTasksResponse.tasks:type_name -> taskpb.Task
+	0,  // 3: taskpb.ListTasksByUserResponse.tasks:type_name -> taskpb.Task
+	0,  // 4: taskpb.UpdateTaskResponse.task:type_name -> taskpb.Task
+	3,  // 5: taskpb.TaskService.CreateTask:input_type -> taskpb.CreateTaskRequest
+	1,  // 6: taskpb.TaskService.GetTask:input_type -> taskpb.TaskRequest
+	5,  // 7: taskpb.TaskService.ListTasks:input_type -> taskpb.ListTasksRequest
+	7,  // 8: taskpb.TaskService.ListTasksByUser:input_type -> taskpb.ListTasksByUserRequest
+	9,  // 9: taskpb.TaskService.UpdateTask:input_type -> taskpb.UpdateTaskRequest
+	11, // 10: taskpb.TaskService.DeleteTask:input_type -> taskpb.DeleteTaskRequest
+	4,  // 11: taskpb.TaskService.CreateTask:output_type -> taskpb.CreateTaskResponse
+	2,  // 12: taskpb.TaskService.GetTask:output_type -> taskpb.TaskResponse
+	6,  // 13: taskpb.TaskService.ListTasks:output_type -> taskpb.ListTasksResponse
+	8,  // 14: taskpb.TaskService.ListTasksByUser:output_type -> taskpb.ListTasksByUserResponse
+	10, // 15: taskpb.TaskService.UpdateTask:output_type -> taskpb.UpdateTaskResponse
+	12, // 16: taskpb.TaskService.DeleteTask:output_type -> taskpb.DeleteTaskResponse
+	11, // [11:17] is the sub-list for method output_type
+	5,  // [5:11] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_task_proto_init() }
