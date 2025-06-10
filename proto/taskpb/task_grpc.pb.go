@@ -2,7 +2,7 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v6.31.1
-// source: taskpb/task.proto
+// source: task.proto
 
 package taskpb
 
@@ -25,6 +25,7 @@ const (
 	TaskService_ListTasksByUser_FullMethodName = "/taskpb.TaskService/ListTasksByUser"
 	TaskService_UpdateTask_FullMethodName      = "/taskpb.TaskService/UpdateTask"
 	TaskService_DeleteTask_FullMethodName      = "/taskpb.TaskService/DeleteTask"
+	TaskService_ToggleTaskDone_FullMethodName  = "/taskpb.TaskService/ToggleTaskDone"
 )
 
 // TaskServiceClient is the client API for TaskService service.
@@ -37,6 +38,7 @@ type TaskServiceClient interface {
 	ListTasksByUser(ctx context.Context, in *ListTasksByUserRequest, opts ...grpc.CallOption) (*ListTasksByUserResponse, error)
 	UpdateTask(ctx context.Context, in *UpdateTaskRequest, opts ...grpc.CallOption) (*UpdateTaskResponse, error)
 	DeleteTask(ctx context.Context, in *DeleteTaskRequest, opts ...grpc.CallOption) (*DeleteTaskResponse, error)
+	ToggleTaskDone(ctx context.Context, in *TaskRequest, opts ...grpc.CallOption) (*TaskResponse, error)
 }
 
 type taskServiceClient struct {
@@ -107,6 +109,16 @@ func (c *taskServiceClient) DeleteTask(ctx context.Context, in *DeleteTaskReques
 	return out, nil
 }
 
+func (c *taskServiceClient) ToggleTaskDone(ctx context.Context, in *TaskRequest, opts ...grpc.CallOption) (*TaskResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(TaskResponse)
+	err := c.cc.Invoke(ctx, TaskService_ToggleTaskDone_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // TaskServiceServer is the server API for TaskService service.
 // All implementations must embed UnimplementedTaskServiceServer
 // for forward compatibility.
@@ -117,6 +129,7 @@ type TaskServiceServer interface {
 	ListTasksByUser(context.Context, *ListTasksByUserRequest) (*ListTasksByUserResponse, error)
 	UpdateTask(context.Context, *UpdateTaskRequest) (*UpdateTaskResponse, error)
 	DeleteTask(context.Context, *DeleteTaskRequest) (*DeleteTaskResponse, error)
+	ToggleTaskDone(context.Context, *TaskRequest) (*TaskResponse, error)
 	mustEmbedUnimplementedTaskServiceServer()
 }
 
@@ -144,6 +157,9 @@ func (UnimplementedTaskServiceServer) UpdateTask(context.Context, *UpdateTaskReq
 }
 func (UnimplementedTaskServiceServer) DeleteTask(context.Context, *DeleteTaskRequest) (*DeleteTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTask not implemented")
+}
+func (UnimplementedTaskServiceServer) ToggleTaskDone(context.Context, *TaskRequest) (*TaskResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ToggleTaskDone not implemented")
 }
 func (UnimplementedTaskServiceServer) mustEmbedUnimplementedTaskServiceServer() {}
 func (UnimplementedTaskServiceServer) testEmbeddedByValue()                     {}
@@ -274,6 +290,24 @@ func _TaskService_DeleteTask_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _TaskService_ToggleTaskDone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(TaskRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TaskServiceServer).ToggleTaskDone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: TaskService_ToggleTaskDone_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TaskServiceServer).ToggleTaskDone(ctx, req.(*TaskRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // TaskService_ServiceDesc is the grpc.ServiceDesc for TaskService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -305,7 +339,11 @@ var TaskService_ServiceDesc = grpc.ServiceDesc{
 			MethodName: "DeleteTask",
 			Handler:    _TaskService_DeleteTask_Handler,
 		},
+		{
+			MethodName: "ToggleTaskDone",
+			Handler:    _TaskService_ToggleTaskDone_Handler,
+		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "taskpb/task.proto",
+	Metadata: "task.proto",
 }

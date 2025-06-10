@@ -55,4 +55,5 @@ service TaskService {
   rpc ListTasksByUser (ListTasksByUserRequest) returns (ListTasksByUserResponse);
   rpc UpdateTask (UpdateTaskRequest) returns (UpdateTaskResponse);
   rpc DeleteTask (DeleteTaskRequest) returns (DeleteTaskResponse);
+  rpc ToggleTaskDone (TaskRequest) returns (TaskResponse);
 }
